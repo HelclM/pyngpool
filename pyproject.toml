@@ -1,0 +1,23 @@
+[build-system]
+requires = ["scikit-build-core>=0.9", "pybind11>=2.11", "wheel"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pyngpool"
+version = "0.1.0"
+requires-python = ">=3.10"
+description = "C++ extension module for Python"
+
+[tool.scikit-build]
+wheel.packages = ["pyngpool"]
+cmake.version = ">=3.18"
+build-dir = "build/{wheel_tag}"
+
+[tool.scikit-build.sdist]
+include = [
+  "CMakeLists.txt",
+  "pyproject.toml",
+  "src/**",
+  "include/**",
+  "pyngpool"
+]
